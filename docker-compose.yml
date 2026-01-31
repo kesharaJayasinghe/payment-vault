@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: vault_db
+    environment:
+      POSTGRES_USER: vault
+      POSTGRES_PASSWORD: securepassword
+      POSTGRES_DB: vault
+    ports:
+      - "5435:5432"
+    volumes:
+      - vault_data:/var/lib/postgresql/data
+  
+volumes:
+  vault_data:
